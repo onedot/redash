@@ -157,7 +157,33 @@ gridcolor: 'rgba(51, 109, 255, 0.5)',
 How to customize Plotly Tooltip
 https://community.plot.ly/t/how-to-customize-plotly-tooltip/332
 ---
-https://www.w3.org/wiki/Dynamic_style_-_manipulating_CSS_with_JavaScript  >>>Adding and Removing Rules
-<style type="text/css" class="cp-pen-styles">body {
-  background: black
-}</style>
+```js
+  function () {
+
+  }
+```
+...
+...
+...
+###修改網頁標題顏色
+>client/app/assets/less/redash/redash-newstyle.less
+//.page-header-wrapper
+{
+color:black;
+}
+
+
+###修改add-textbox的字體顏色和大小
+>client/app/asset/less/redash/redash-newstyle.less
+...
+>body-row-auto scrollbox tiled t-body p-15 markdown
+//body-row-auto scrollbox tiled t-body p-15 markdown textbox-font-size
+//.textbox-font-size
+//font-size:50px;
+//color:red;
+
+###修改queries編輯狀態下，左邊字體顏色
+>client/app/asset/less/inc/schema-browser.less
+//div.table-name
+//color: black;
+
