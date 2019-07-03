@@ -768,19 +768,19 @@ export function updateData(seriesList, options) {
   updateSeriesText(seriesList, options);
 }
 
-function fixLegendContainer(plotlyElement) {
-  const legend = plotlyElement.querySelector('.legend');
-  if (legend) {
-    let node = legend.parentNode;
-    while (node) {
-      if (node.tagName.toLowerCase() === 'svg') {
-        node.style.overflow = 'visible';
-        break;
-      }
-      node = node.parentNode;
-    }
-  }
-}
+// function fixLegendContainer(plotlyElement) {
+//   const legend = plotlyElement.querySelector('.legend');
+//   if (legend) {
+//     let node = legend.parentNode;
+//     while (node) {
+//       if (node.tagName.toLowerCase() === 'svg') {
+//         node.style.overflow = 'visible';
+//         break;
+//       }
+//       node = node.parentNode;
+//     }
+//   }
+// }
 
 export function updateLayout(plotlyElement, layout, updatePlot) {
   // update layout size to plot container
@@ -795,7 +795,8 @@ export function updateLayout(plotlyElement, layout, updatePlot) {
     'oTransform',
   ], prop => has(plotlyElement.style, prop));
 
-  if (layout.width <= 600) {
+  /*
+    if (layout.width <= 600) {
     // change legend orientation to horizontal; plotly has a bug with this
     // legend alignment - it does not preserve enough space under the plot;
     // so we'll hack this: update plot (it will re-render legend), compute
@@ -849,22 +850,23 @@ export function updateLayout(plotlyElement, layout, updatePlot) {
       }
     });
   } else {
-    layout.legend = {
-      orientation: 'v',
-      // vertical legend will be rendered properly, so just place it to the right
-      // side of plot
-      y: 1,
-      x: 1,
-      xanchor: 'left',
-      yanchor: 'top',
-      bgcolor: 'rgba(255, 255, 255, 0)',
-    };
+  */
+  layout.legend = {
+    orientation: 'v',
+    // vertical legend will be rendered properly, so just place it to the right
+    // side of plot
+    y: 1,
+    x: 1,
+    xanchor: 'left',
+    yanchor: 'top',
+    bgcolor: 'rgba(255, 255, 255, 0)',
+  };
 
-    const legend = plotlyElement.querySelector('.legend');
-    if (legend) {
-      legend.style[transformName] = null;
-    }
-
-    updatePlot(plotlyElement, pick(layout, ['width', 'height', 'legend']));
+  const legend = plotlyElement.querySelector('.legend');
+  if (legend) {
+    legend.style[transformName] = null;
   }
+
+  updatePlot(plotlyElement, pick(layout, ['width', 'height', 'legend']));
+  // }
 }

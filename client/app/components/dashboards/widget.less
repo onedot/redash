@@ -4,6 +4,7 @@
 
 visualization-name:empty + span {
   color: rgba(255, 255, 255, 0.8);
+  font-size: 120%;
 }
 
 visualization-name {
@@ -86,6 +87,24 @@ visualization-name {
     }
     :last-child {
       margin-bottom: 0;
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      p {
+        width: 100%;
+        display: flex;
+        justify-content: space-between;
+        a {
+          color: white;
+        }
+        img:first-child {
+          align-self: flex-start;
+        }
+        img:last-child {
+          align-self: flex-end;
+        }
+      }
+      
     }
   }
 }
