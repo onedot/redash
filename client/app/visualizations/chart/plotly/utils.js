@@ -400,7 +400,6 @@ function prepareChartData(seriesList, options) {
     item => formatSimpleTemplate(options.textFormat, item);
 
   const hoverinfo = getHoverInfoPattern(options);
-
   return map(seriesList, (series, index) => {
     const seriesOptions = options.seriesOptions[series.name] ||
       { type: options.globalSeriesType };
@@ -455,9 +454,8 @@ function prepareChartData(seriesList, options) {
       //     color: '#3B5169',
       //     width: 1,
       //   },
-        color: ColorPaletteArray[index % ColorPaletteArray.length],
+        color: seriesColor,
       },
-      // color: seriesColor,
       insidetextfont: {
         color: getFontColor(seriesColor),
       },
